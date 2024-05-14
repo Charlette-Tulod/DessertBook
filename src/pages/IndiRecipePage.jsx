@@ -10,6 +10,7 @@ const IndiRecipePage = () => {
   const [recipe, setRecipe] = useState(null);
   const navigate = useNavigate();
 
+  // Find the recipe to display based on the ID
   useEffect(() => {
     const selectedRecipe = recipes.find((recipe) => recipe.id === id);
     if (selectedRecipe) {
@@ -17,6 +18,7 @@ const IndiRecipePage = () => {
     }
   }, [id, recipes]);
 
+  // Deleting a Recipe
   const onDeleteClick = async () => {
     const confirmDelete = window.confirm('Are you sure you want to delete this recipe?');
     if (confirmDelete) {
