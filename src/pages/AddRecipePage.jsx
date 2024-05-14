@@ -1,11 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RecipeContext } from '../context/RecipeContext';
 import { toast } from 'react-toastify';
 import { FiPlusCircle } from 'react-icons/fi';
 import { FaTrash } from 'react-icons/fa';
 
 const AddRecipePage = () => {
+  const { addRecipe } = useContext(RecipeContext);
   const [name, setName] = useState('');
   const [timeprepared, setTimeprepared] = useState('');
   const [description, setDescription] = useState('');
@@ -26,18 +28,7 @@ const AddRecipePage = () => {
     };
 
     try {
-      const response = await fetch('/api/recipes', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newRecipe),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to add recipe');
-      }
-
+      await addRecipe(newRecipe);
       toast.success('Recipe Added Successfully');
       navigate('/recipes');
     } catch (error) {

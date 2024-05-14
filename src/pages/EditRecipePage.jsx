@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { RecipeContext } from '../context/RecipeContext';
 import { toast } from 'react-toastify';
 import { FaTrash } from 'react-icons/fa';
 import { FiPlusCircle } from 'react-icons/fi';
@@ -7,6 +8,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 const UpdateRecipePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { recipes, updateRecipe } = useContext(RecipeContext);
 
   const [name, setName] = useState('');
   const [timeprepared, setTimeprepared] = useState('');
@@ -15,27 +17,15 @@ const UpdateRecipePage = () => {
   const [instructions, setInstructions] = useState([]);
 
   useEffect(() => {
-    const fetchRecipe = async () => {
-      try {
-        const response = await fetch(`/api/recipes/${id}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch recipe');
-        }
-        const recipeData = await response.json();
-        setName(recipeData.name);
-        setTimeprepared(recipeData.timeprepared);
-        setDescription(recipeData.description);
-        setIngredients(recipeData.ingredients);
-        setInstructions(recipeData.instructions);
-      } catch (error) {
-        console.error('Error fetching recipe:', error.message);
-        toast.error('Failed to fetch recipe. Please try again.');
-        navigate('/recipes');
-      }
-    };
-
-    fetchRecipe();
-  }, [id, navigate]);
+    const recipeToUpdate = recipes.find((recipe) => recipe.id === id);
+    if (recipeToUpdate) {
+      setName(recipeToUpdate.name);
+      setTimeprepared(recipeToUpdate.timeprepared);
+      setDescription(recipeToUpdate.description);
+      setIngredients(recipeToUpdate.ingredients);
+      setInstructions(recipeToUpdate.instructions);
+    }
+  }, [id, recipes]);
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -49,18 +39,7 @@ const UpdateRecipePage = () => {
     };
 
     try {
-      const response = await fetch(`/api/recipes/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedRecipe),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to update recipe');
-      }
-
+      await updateRecipe(id, updatedRecipe);
       toast.success('Recipe Updated Successfully');
       navigate('/recipes');
     } catch (error) {

@@ -1,53 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { RecipeContext } from '../context/RecipeContext';
 import { FaArrowLeft } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const IndiRecipePage = () => {
   const { id } = useParams();
+  const { recipes, deleteRecipe } = useContext(RecipeContext);
   const [recipe, setRecipe] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchRecipe = async () => {
+    const selectedRecipe = recipes.find((recipe) => recipe.id === id);
+    if (selectedRecipe) {
+      setRecipe(selectedRecipe);
+    }
+  }, [id, recipes]);
+
+  const onDeleteClick = async () => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this recipe?');
+    if (confirmDelete) {
       try {
-        const res = await fetch(`/api/recipes/${id}`);
-        const data = await res.json();
-        setRecipe(data);
+        await deleteRecipe(id);
+        toast.success('Recipe deleted successfully');
+        navigate('/recipes');
       } catch (error) {
-        console.log('Error fetching data', error);
+        console.error('Error deleting recipe:', error.message);
+        toast.error('Failed to delete recipe');
       }
-    };
-    fetchRecipe();
-  }, [id]);
+    }
+  };
 
   if (!recipe) {
     return <div>Loading...</div>;
   }
-
-  const deleteRecipe = async (id) => {
-    try {
-      const res = await fetch(`/api/recipes/${id}`, {
-        method: 'DELETE',
-      });
-      if (res.ok) {
-        navigate('/recipes'); // navigate to recipes page
-        toast.success('Recipe deleted successfully'); // show success toast
-      } else {
-        throw new Error('Failed to delete recipe');
-      }
-    } catch (error) {
-      console.error('Error deleting recipe', error);
-      toast.error('Failed to delete recipe'); // show error toast
-    }
-  };
-
-  const onDeleteClick = () => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this recipe?');
-    if (confirmDelete) {
-      deleteRecipe(recipe.id);
-    }
-  };
 
   return (
     <div className="bg-lightrose">
