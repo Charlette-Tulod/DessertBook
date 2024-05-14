@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Logo from '../assets/logo.png';
 
 const NavigationBar = () => {
-  const linkClass = ({ isActive }) =>
+  const activationClass = ({ isActive }) =>
     isActive
       ? 'bg-darkerrose  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
       : ' hover:bg-gray-900 hover:text-white rounded-md px-3 py-2';
@@ -18,13 +18,13 @@ const NavigationBar = () => {
             </NavLink>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
-                <NavLink to="/" className={linkClass}>
+                <NavLink to="/" className={activationClass}>
                   Home
                 </NavLink>
-                <NavLink to="/recipes" className={linkClass}>
+                <NavLink to="/recipes" className={activationClass}>
                   Desserts
                 </NavLink>
-                <NavLink to="/addrecipe" className={linkClass}>
+                <NavLink to="/addrecipe" className={activationClass}>
                   Add Recipe
                 </NavLink>
               </div>
