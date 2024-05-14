@@ -15,7 +15,7 @@ const Banner = () => {
           <h1 className=" text-brown sm:text-2xl md:text-4xl">
             Welcome to
             <br />
-            <span className="font-extrabold text-white sm:text-5xl md:text-5xl">Dessert Book!</span>
+            <span className="font-extrabold sm:text-5xl md:text-5xl">Dessert Book!</span>
           </h1>
           <p className="my-10 text-brown">
             Explore a treasure trove of delectable dessert recipes! Indulge in decadent cakes and

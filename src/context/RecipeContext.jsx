@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const RecipeContext = createContext();
 
-const RecipeContextProvider = ({ children, isMain = false }) => {
+const RecipeContextProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
 
   /* Get Recipes */

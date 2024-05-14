@@ -38,7 +38,7 @@ const IndiRecipePage = () => {
   }
 
   return (
-    <div className="bg-lightrose">
+    <div className="bg-lightrose min-h-screen min-w-full">
       <section>
         <div className="container m-auto py-6 px-6">
           <Link to="/recipes" className="text-brown hover:darkerrose flex items-center">
@@ -53,13 +53,15 @@ const IndiRecipePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-30/70 w-full gap-6">
             <div className="bg-cwhite p-6 rounded-lg shadow-md ">
               <h1 className="text-3xl text-brown font-bold mb-4">{recipe.name}</h1>
-              <div className="text-gray-500 mb-4 flex align-middle justify-center md:justify-start">
-                <p className="text-orange-700">Estimated Time Prepared: {recipe.timeprepared}</p>
+              <div className="border border-lightrose mb-5"></div>
+
+              <p className=" mt-8">{recipe.description}</p>
+
+              <div className="text-brown mb-4 mt-8 flex align-middle justify-center md:justify-start">
+                <p>Estimated Time Prepared: {recipe.timeprepared}</p>
               </div>
 
-              <p className="text-orange-700 mt-8">{recipe.description}</p>
-
-              <hr className="my-4" />
+              <div className="border border-lightrose mb-5"></div>
               <h3 className="text-xl font-bold mb-6 mt-10 text-brown">Manage Recipe</h3>
 
               <Link
@@ -90,7 +92,7 @@ const IndiRecipePage = () => {
                   ))}
                 </ul>
 
-                <h3 className="text-brown text-lg font-bold mb-2">Instructions</h3>
+                <h3 className="text-brown text-lg font-bold mb-6 mt-10">Instructions</h3>
 
                 <ol className="list-decimal ml-6">
                   {recipe.instructions.map((instruction, index) => (

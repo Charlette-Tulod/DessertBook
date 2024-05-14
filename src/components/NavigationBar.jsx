@@ -5,8 +5,8 @@ import Logo from '../assets/logo.png';
 const NavigationBar = () => {
   const linkClass = ({ isActive }) =>
     isActive
-      ? 'bg-darkerrose text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
-      : 'text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2';
+      ? 'bg-darkerrose  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+      : ' hover:bg-gray-900 hover:text-white rounded-md px-3 py-2';
 
   return (
     <nav className="bg-lightrose border-b border-rose">
@@ -15,9 +15,6 @@ const NavigationBar = () => {
           <div className="flex flex-1 items-center justify-center ">
             <NavLink className="" to="/">
               <img className="h-20 w-auto" src={Logo} alt="Dessert Book" />
-              {/* <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                Dessert Book
-              </span> */}
             </NavLink>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
