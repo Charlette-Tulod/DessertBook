@@ -1,0 +1,184 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "name": "Chocolate Chip Cookies",
+      "description": "Indulge in the rich, moist goodness of these classic chocolate chip cookies. Each bite offers a perfect balance of crispy edges and chewy centers, complemented by generous pockets of melted semisweet chocolate chips. ",
+      "timeprepared": "45 minutes",
+      "ingredients": [
+        "2 and 1/4 cups all-purpose flour",
+        "1 teaspoon baking soda",
+        "1/2 teaspoon salt",
+        "1 cup unsalted butter, softened",
+        "3/4 cup granulated sugar",
+        "3/4 cup packed brown sugar",
+        "1 teaspoon vanilla extract",
+        "2 large eggs",
+        "2 cups semisweet chocolate chips"
+      ],
+      "instructions": [
+        "Preheat your oven to 375°F (190°C). Line baking sheets with parchment paper.",
+        "In a medium bowl, whisk together flour, baking soda, and salt.",
+        "In a large mixing bowl, beat together softened butter, granulated sugar, brown sugar, and vanilla extract until creamy.",
+        "Add eggs, one at a time, beating well after each addition.",
+        "Gradually add the flour mixture to the wet ingredients, mixing until just combined.",
+        "Stir in chocolate chips.",
+        "Drop dough by rounded tablespoons onto prepared baking sheets, spacing them about 2 inches apart.",
+        "Bake in preheated oven for 9 to 11 minutes, or until golden brown.",
+        "Remove from oven and let cool on baking sheets for 2 minutes before transferring to wire racks to cool completely."
+      ]
+    },
+    {
+      "id": "2",
+      "name": "New York Cheesecake",
+      "description": "Transport yourself to the bustling streets of New York City with each decadent bite of this creamy cheesecake. A buttery graham cracker crust provides the perfect foundation for the rich and velvety filling, which is made with a generous amount of cream cheese, eggs, and sour cream. ",
+      "timeprepared": "4 hours",
+      "ingredients": [
+        "1 and 1/2 cups graham cracker crumbs",
+        "1/4 cup granulated sugar",
+        "1/2 cup unsalted butter, melted",
+        "4 (8-ounce) packages cream cheese, softened",
+        "1 and 1/4 cups granulated sugar",
+        "4 large eggs",
+        "2 teaspoons vanilla extract",
+        "1 cup sour cream",
+        "1/4 cup all-purpose flour"
+      ],
+      "instructions": [
+        "Preheat your oven to 325°F (160°C). Wrap the outside of a 9-inch springform pan with aluminum foil.",
+        "In a mixing bowl, combine graham cracker crumbs, 1/4 cup granulated sugar, and melted butter. Press the mixture evenly into the bottom of the prepared pan.",
+        "In a large mixing bowl, beat cream cheese and 1 and 1/4 cups granulated sugar until smooth.",
+        "Add eggs, one at a time, beating well after each addition. Stir in vanilla extract, sour cream, and flour until well combined.",
+        "Pour the batter over the prepared crust in the springform pan.",
+        "Place the springform pan in a large roasting pan. Fill the roasting pan with enough hot water to reach halfway up the sides of the springform pan.",
+        "Bake in preheated oven for 55 to 60 minutes, or until the edges are set and the center is slightly jiggly.",
+        "Turn off the oven and leave the cheesecake inside with the door closed for 1 hour.",
+        "Remove the cheesecake from the oven and let it cool completely on a wire rack. Refrigerate for at least 3 hours or overnight before serving."
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Banoffee Pie",
+      "description": "Take a culinary journey to the English countryside with this irresistible Banoffee Pie. A buttery graham cracker crust provides the perfect base for layers of creamy caramel, fresh bananas, and billowy whipped cream.",
+      "timeprepared": "2 hours",
+      "ingredients": [
+        "1 and 1/2 cups graham cracker crumbs",
+        "1/3 cup granulated sugar",
+        "1/2 cup unsalted butter, melted",
+        "2 (14-ounce) cans sweetened condensed milk",
+        "3 large bananas, sliced",
+        "1 and 1/2 cups heavy cream",
+        "1 teaspoon vanilla extract",
+        "Chocolate shavings or cocoa powder (optional, for garnish)"
+      ],
+      "instructions": [
+        "In a mixing bowl, combine graham cracker crumbs, granulated sugar, and melted butter. Press the mixture into the bottom and up the sides of a 9-inch pie dish to form the crust.",
+        "Place the pie crust in the refrigerator to chill while preparing the filling.",
+        "Pour sweetened condensed milk into a saucepan. Cook over low heat, stirring constantly, for 20 to 30 minutes, or until the mixture thickens and turns into caramel. Remove from heat and let cool slightly.",
+        "Spread the caramel evenly over the chilled pie crust.",
+        "Arrange sliced bananas over the caramel layer.",
+        "In a mixing bowl, whip heavy cream and vanilla extract until stiff peaks form. Spread the whipped cream over the bananas.",
+        "If desired, garnish with chocolate shavings or dust with cocoa powder.",
+        "Chill the banoffee pie in the refrigerator for at least 1 hour before serving."
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Lemon Bars",
+      "description": "Brighten up your day with the zesty goodness of these delightful Lemon Bars. A buttery shortbread crust serves as the perfect base for a tangy and refreshing lemon filling, made with fresh lemon juice and zest. ",
+      "timeprepared": "1 hour",
+      "ingredients": [
+        "For the crust:",
+        "1 cup unsalted butter, softened",
+        "1/2 cup granulated sugar",
+        "2 cups all-purpose flour",
+        "1/4 teaspoon salt",
+        "For the filling:",
+        "2 cups granulated sugar",
+        "1/4 cup all-purpose flour",
+        "4 large eggs",
+        "1 cup fresh lemon juice",
+        "Zest of 2 lemons",
+        "Powdered sugar, for dusting"
+      ],
+      "instructions": [
+        "Preheat your oven to 350°F (175°C). Grease a 9x13-inch baking pan.",
+        "In a mixing bowl, cream together softened butter and granulated sugar until light and fluffy.",
+        "Gradually add flour and salt to the butter mixture, mixing until crumbly.",
+        "Press the mixture evenly into the bottom of the prepared baking pan to form the crust.",
+        "Bake the crust in the preheated oven for 20 to 25 minutes, or until lightly golden brown.",
+        "While the crust is baking, prepare the filling. In a separate mixing bowl, whisk together granulated sugar and flour.",
+        "Add eggs, lemon juice, and lemon zest to the sugar mixture, whisking until smooth.",
+        "Pour the filling over the hot crust. Return the pan to the oven and bake for an additional 20 to 25 minutes, or until the filling is set and the edges are lightly golden brown.",
+        "Remove the lemon bars from the oven and let them cool completely in the pan on a wire rack.",
+        "Once cooled, dust the top with powdered sugar. Cut into squares and serve."
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Tiramisu",
+      "description": "Indulge in the irresistible allure of this classic Italian dessert, Tiramisu. Layers of coffee-soaked ladyfingers are nestled between luscious clouds of mascarpone cheese, creating a symphony of flavors and textures that dance on your palate. ",
+      "timeprepared": "4 hours",
+      "ingredients": [
+        "For the coffee mixture:",
+        "1 and 1/2 cups brewed espresso or strong coffee, cooled",
+        "1/4 cup coffee liqueur (optional)",
+        "For the mascarpone filling:",
+        "4 large egg yolks",
+        "2/3 cup granulated sugar",
+        "1 cup heavy cream",
+        "1 teaspoon vanilla extract",
+        "1 pound mascarpone cheese, softened",
+        "For assembling:",
+        "24 to 30 ladyfinger cookies",
+        "Cocoa powder, for dusting"
+      ],
+      "instructions": [
+        "In a shallow dish, combine brewed espresso or coffee with coffee liqueur, if using.",
+        "In a heatproof bowl, whisk together egg yolks and granulated sugar until pale and creamy.",
+        "Place the bowl over a pot of simmering water (double boiler) and whisk constantly until the mixture thickens and coats the back of a spoon. Remove from heat and let cool slightly.",
+        "In a separate mixing bowl, whip heavy cream and vanilla extract until stiff peaks form.",
+        "Fold the whipped cream into the mascarpone cheese until smooth and well combined.",
+        "Dip ladyfinger cookies into the coffee mixture briefly, making sure not to soak them too long. Arrange a layer of soaked ladyfingers in the bottom of a 9x13-inch dish.",
+        "Spread half of the mascarpone filling over the layer of ladyfingers.",
+        "Repeat the layers with remaining ladyfingers and mascarpone filling.",
+        "Cover and refrigerate the tiramisu for at least 4 hours or overnight to allow the flavors to meld.",
+        "Before serving, dust the top of the tiramisu with cocoa powder. Enjoy!"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Strawberry Shortcake",
+      "description": "Celebrate the sweet abundance of summer with this delightful Strawberry Shortcake. Tender shortcakes, made with buttery pastry and hints of vanilla, are layered with juicy ripe strawberries and billowy clouds of whipped cream. ",
+      "timeprepared": "45 minutes",
+      "ingredients": [
+        "For the shortcakes:",
+        "2 cups all-purpose flour",
+        "1/4 cup granulated sugar",
+        "1 tablespoon baking powder",
+        "1/2 teaspoon salt",
+        "1/2 cup unsalted butter, cold and cut into small pieces",
+        "2/3 cup milk",
+        "1 teaspoon vanilla extract",
+        "For the filling:",
+        "2 pounds fresh strawberries, hulled and sliced",
+        "1/4 cup granulated sugar",
+        "1 and 1/2 cups heavy cream",
+        "2 tablespoons powdered sugar",
+        "1 teaspoon vanilla extract"
+      ],
+      "instructions": [
+        "Preheat your oven to 425°F (220°C). Line a baking sheet with parchment paper.",
+        "In a large mixing bowl, whisk together flour, granulated sugar, baking powder, and salt.",
+        "Cut in cold butter pieces using a pastry cutter or fork until the mixture resembles coarse crumbs.",
+        "Stir in milk and vanilla extract until just combined. Do not overmix.",
+        "Drop dough by large spoonfuls onto the prepared baking sheet, spacing them about 2 inches apart.",
+        "Bake in preheated oven for 12 to 15 minutes, or until the shortcakes are golden brown.",
+        "Remove from oven and let cool on a wire rack.",
+        "While the shortcakes are cooling, prepare the filling. In a mixing bowl, toss sliced strawberries with granulated sugar. Let sit for 15 to 20 minutes to allow the strawberries to release their juices.",
+        "In another mixing bowl, whip heavy cream, powdered sugar, and vanilla extract until stiff peaks form.",
+        "To assemble, split the cooled shortcakes in half horizontally. Spoon a generous amount of strawberries onto the bottom half of each shortcake, then top with a dollop of whipped cream. Place the top half of the shortcake over the whipped cream. Serve immediately and enjoy!"
+      ]
+    }
+  ]
+}

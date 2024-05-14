@@ -14,9 +14,7 @@ const App = () => {
       <Route path="/" element={<NavLayout />}>
         <Route index element={<HomePage />} />
         <Route path="/recipes" element={<DessertsPage />} />
-
         <Route path="/recipes/:id" element={<IndiRecipePage />} />
-
         <Route path="/addrecipe" element={<AddRecipePage />} />
         <Route path="/editrecipe/:id" element={<EditRecipePage />} />
         <Route path="*" element={<NotFoundPage />} />
