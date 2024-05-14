@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { RecipeContext } from '../context/RecipeContext';
+import { FaArrowLeft } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import RecipeForm from '../components/RecipeForm';
 
@@ -26,12 +27,18 @@ const EditRecipePage = () => {
 
   return (
     <section className="bg-lightrose">
-      <div className="container m-auto max-w-2xl py-24">
+      <div className="container m-auto py-6 px-6">
+        <Link to={`/recipes/${id}`} className="text-brown hover:darkerrose flex items-center">
+          <FaArrowLeft className=" text-brown" />
+        </Link>
+      </div>
+      <div className="container m-auto max-w-3xl py-10">
         <div className="bg-cwhite px-6 py-8 mb-4 shadow-md rounded-md m-4 md:m-0">
           <RecipeForm
             initialData={recipeToUpdate}
             onSubmit={handleUpdateRecipe}
             buttonText="Edit Recipe"
+            headerText="Edit Recipe"
           />
         </div>
       </div>

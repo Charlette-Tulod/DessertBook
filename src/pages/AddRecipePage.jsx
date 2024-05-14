@@ -34,6 +34,7 @@ const AddRecipePage = () => {
             }}
             onSubmit={handleAddRecipe}
             buttonText="Add Recipe"
+            headerText="Add Recipe"
           />
         </div>
       </div>

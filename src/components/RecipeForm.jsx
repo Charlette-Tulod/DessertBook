@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { FiPlusCircle } from 'react-icons/fi';
 
-const RecipeForm = ({ initialData, onSubmit, buttonText }) => {
+const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
   const [name, setName] = useState('');
   const [timeprepared, setTimeprepared] = useState('');
   const [description, setDescription] = useState('');
@@ -62,7 +62,7 @@ const RecipeForm = ({ initialData, onSubmit, buttonText }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className="text-3xl text-center text-brown font-semibold mb-6">Add Recipe</h2>
+      <h2 className="text-3xl text-center text-brown font-semibold mb-6">{headerText}</h2>
 
       {/* Name */}
       <div className="mb-4">
@@ -169,7 +169,7 @@ const RecipeForm = ({ initialData, onSubmit, buttonText }) => {
       {/* Add Recipe Button */}
       <div>
         <button
-          className="bg-lightrose hover:bg-darkerrose text-brown font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
+          className="bg-darkerrose hover:bg-rose text-brown font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
           type="submit"
         >
           {buttonText}

@@ -66,21 +66,21 @@ const IndiRecipePage = () => {
 
               <Link
                 to={`/editrecipe/${recipe.id}`}
-                className="bg-darkerrose hover:bg-lightrose text-white text-center  py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                className="bg-darkerrose hover:bg-rose text-white text-center  py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Edit Recipe
               </Link>
 
               <button
                 onClick={() => onDeleteClick(recipe.id)}
-                className="bg-darkerrose hover:bg-lightrose text-white  py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                className="bg-darkerrose hover:bg-rose text-white  py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Delete Recipe
               </button>
             </div>
 
             {/* Recipe Infos*/}
-            <div className="ml-6 mb-10">
+            <div className="ml-6 ">
               <div className="bg-cwhite p-6 rounded-lg shadow-md ">
                 <h3 className="text-brown text-lg font-bold mb-6">Ingredients</h3>
 
