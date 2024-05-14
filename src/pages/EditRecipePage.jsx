@@ -16,6 +16,7 @@ const UpdateRecipePage = () => {
   const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState([]);
 
+  // Effect to load the recipe to be updated when component mounts or recipes change
   useEffect(() => {
     const recipeToUpdate = recipes.find((recipe) => recipe.id === id);
     if (recipeToUpdate) {
@@ -27,7 +28,8 @@ const UpdateRecipePage = () => {
     }
   }, [id, recipes]);
 
-  const submitForm = async (e) => {
+  // Handle form submission for updating a recipe
+  const editForm = async (e) => {
     e.preventDefault();
 
     const updatedRecipe = {
@@ -48,6 +50,7 @@ const UpdateRecipePage = () => {
     }
   };
 
+  //Handles change in ingredient and instruction input
   const handleIngredientChange = (e, index) => {
     const newIngredients = [...ingredients];
     newIngredients[index] = e.target.value;
@@ -60,6 +63,7 @@ const UpdateRecipePage = () => {
     setInstructions(newInstructions);
   };
 
+  //Add a new ingredient and instruction field
   const addIngredientField = () => {
     setIngredients([...ingredients, '']);
   };
@@ -68,6 +72,7 @@ const UpdateRecipePage = () => {
     setInstructions([...instructions, '']);
   };
 
+  //Remove an ingredient field
   const removeIngredientField = (index) => {
     const newIngredients = ingredients.filter((_, i) => i !== index);
     setIngredients(newIngredients);
@@ -82,9 +87,10 @@ const UpdateRecipePage = () => {
     <section className="bg-lightrose">
       <div className="container m-auto max-w-2xl py-24">
         <div className="bg-cwhite px-6 py-8 mb-4 shadow-md rounded-md m-4 md:m-0">
-          <form onSubmit={submitForm}>
+          <form onSubmit={editForm}>
             <h2 className="text-3xl text-center font-semibold mb-6">Edit Recipe</h2>
 
+            {/* Name */}
             <div className="mb-4">
               <label className="block text-gray-700 font-bold mb-2">Recipe Name</label>
               <input
@@ -98,6 +104,8 @@ const UpdateRecipePage = () => {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
+
+            {/* Time Prepared */}
             <div className="mb-4">
               <label className="block text-gray-700 font-bold mb-2">Estimated Time Prepared</label>
               <input
@@ -111,6 +119,8 @@ const UpdateRecipePage = () => {
                 onChange={(e) => setTimeprepared(e.target.value)}
               />
             </div>
+
+            {/* Description */}
             <div className="mb-4">
               <label htmlFor="description" className="block text-gray-700 font-bold mb-2">
                 Description

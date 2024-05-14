@@ -16,6 +16,7 @@ const AddRecipePage = () => {
 
   const navigate = useNavigate();
 
+  // Handles form submission
   const submitForm = async (e) => {
     e.preventDefault();
 
@@ -37,6 +38,7 @@ const AddRecipePage = () => {
     }
   };
 
+  //Handles change in ingredient and instruction input
   const handleIngredientChange = (e, index) => {
     const newIngredients = [...ingredients];
     newIngredients[index] = e.target.value;
@@ -49,6 +51,7 @@ const AddRecipePage = () => {
     setInstructions(newInstructions);
   };
 
+  //Add a new ingredient and instruction field
   const addIngredientField = () => {
     setIngredients([...ingredients, '']);
   };
@@ -57,6 +60,7 @@ const AddRecipePage = () => {
     setInstructions([...instructions, '']);
   };
 
+  //Remove an ingredient field
   const removeIngredientField = (index) => {
     const newIngredients = ingredients.filter((_, i) => i !== index);
     setIngredients(newIngredients);
@@ -176,9 +180,10 @@ const AddRecipePage = () => {
               </button>
             </div>
 
+            {/* Add Recipe Button */}
             <div>
               <button
-                className="bg-lightrose hover:bg-darkerrose text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
+                className="bg-lightrose hover:bg-darkerrose text-brown font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Add Recipe
