@@ -1,11 +1,31 @@
 import React from 'react';
+import { Container, Typography } from '@mui/material';
 
 const NotFoundPage = () => {
   return (
-    <div className="bg-lightrose min-h-screen min-w-full text-center flex flex-col justify-center items-center h-96">
-      <h1 className="text-6xl font-bold mb-4">404 Not Found</h1>
-      <p className="text-xl mb-5">This page does not exist</p>
-    </div>
+    <Container
+      sx={{
+        minHeight: '100vh',
+        minWidth: '100vw',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff1f2',
+      }}
+    >
+      <Typography
+        variant="h1"
+        component="h1"
+        gutterBottom
+        sx={{ fontSize: '5rem', fontWeight: 'bold' }}
+      >
+        404 Not Found
+      </Typography>
+      <Typography variant="body1" gutterBottom sx={{ fontSize: '1.5rem' }}>
+        This page does not exist
+      </Typography>
+    </Container>
   );
 };
 

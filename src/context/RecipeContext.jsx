@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { config } from '../services/config';
+// import { fetchRecipes } from '../services/service';
 
 export const RecipeContext = createContext();
 
@@ -7,10 +9,27 @@ const RecipeContextProvider = ({ children }) => {
 
   /* Get Recipes */
 
+  // useEffect(() => {
+  //   const getRecipes = async () => {
+  //     try {
+  //       const response = await fetchRecipes();
+  //       if (!response.success) {
+  //         throw new Error('Failed to fetch recipes');
+  //       }
+  //       // const data = await response.json();
+  //       setRecipes(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching recipes:', error.message);
+  //     }
+  //   };
+
+  //   getRecipes();
+  // }, []);
+
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch('https://json-server-vercel-sepia-seven.vercel.app/recipes');
+        const response = await fetch(`${config.API_URL}/recipes`);
         if (!response.ok) {
           throw new Error('Failed to fetch recipes');
         }
@@ -28,7 +47,7 @@ const RecipeContextProvider = ({ children }) => {
 
   const addRecipe = async (newRecipe) => {
     try {
-      const response = await fetch('https://json-server-vercel-sepia-seven.vercel.app/recipes', {
+      const response = await fetch(`${config.API_URL}/recipes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,16 +71,13 @@ const RecipeContextProvider = ({ children }) => {
 
   const updateRecipe = async (id, updatedRecipe) => {
     try {
-      const response = await fetch(
-        `https://json-server-vercel-sepia-seven.vercel.app/recipes/${id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(updatedRecipe),
-        }
-      );
+      const response = await fetch(`${config.API_URL}/recipes/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedRecipe),
+      });
 
       if (!response.ok) {
         throw new Error('Failed to update recipe');
@@ -85,12 +101,9 @@ const RecipeContextProvider = ({ children }) => {
 
   const deleteRecipe = async (id) => {
     try {
-      const response = await fetch(
-        `https://json-server-vercel-sepia-seven.vercel.app/recipes/${id}`,
-        {
-          method: 'DELETE',
-        }
-      );
+      const response = await fetch(`${config.API_URL}/recipes/${id}`, {
+        method: 'DELETE',
+      });
 
       if (!response.ok) {
         throw new Error('Failed to delete recipe');
@@ -105,6 +118,7 @@ const RecipeContextProvider = ({ children }) => {
   };
 
   return (
+    // <RecipeContext.Provider value={{ recipes, addRecipe, updateRecipe, deleteRecipe }}>
     <RecipeContext.Provider value={{ recipes, addRecipe, updateRecipe, deleteRecipe }}>
       {children}
     </RecipeContext.Provider>
