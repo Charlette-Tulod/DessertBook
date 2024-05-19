@@ -173,7 +173,7 @@ const IndiRecipePage = () => {
 
         <Grid container spacing={6}>
           <Grid item xs={12} md={4}>
-            <Box sx={{ backgroundColor: '#ffffff', p: 3, borderRadius: 4, boxShadow: 2 }}>
+            <Box sx={{ backgroundColor: '#ffffff', p: 4, borderRadius: 4, boxShadow: 2 }}>
               <Typography variant="h4" fontWeight="bold" color="#754328" mb={2}>
                 {selectedRecipe.name}
               </Typography>
