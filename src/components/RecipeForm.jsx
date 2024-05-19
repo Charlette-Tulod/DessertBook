@@ -3,22 +3,11 @@ import { FaTrash } from 'react-icons/fa';
 import { FiPlusCircle } from 'react-icons/fi';
 
 const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
-  const [name, setName] = useState('');
-  const [timeprepared, setTimeprepared] = useState('');
-  const [description, setDescription] = useState('');
-  const [ingredients, setIngredients] = useState([]);
-  const [instructions, setInstructions] = useState([]);
-
-  // Effect to load the recipe to be updated when component mounts or recipes change
-  useEffect(() => {
-    if (initialData) {
-      setName(initialData.name);
-      setTimeprepared(initialData.timeprepared);
-      setDescription(initialData.description);
-      setIngredients(initialData.ingredients);
-      setInstructions(initialData.instructions);
-    }
-  }, [initialData]);
+  const [name, setName] = useState(initialData?.name || '');
+  const [timeprepared, setTimeprepared] = useState(initialData?.timeprepared || '');
+  const [description, setDescription] = useState(initialData?.description || '');
+  const [ingredients, setIngredients] = useState(initialData?.ingredients || []);
+  const [instructions, setInstructions] = useState(initialData?.instructions || []);
 
   //Handles change in ingredient and instruction input
   const handleIngredientChange = (e, index) => {

@@ -7,16 +7,11 @@ import { toast } from 'react-toastify';
 const IndiRecipePage = () => {
   const { id } = useParams();
   const { recipes, deleteRecipe } = useContext(RecipeContext);
-  const [recipe, setRecipe] = useState(null);
+  // const [recipe, setRecipe] = useState(null);
   const navigate = useNavigate();
 
   // Find the recipe to display based on the ID
-  useEffect(() => {
-    const selectedRecipe = recipes.find((recipe) => recipe.id === id);
-    if (selectedRecipe) {
-      setRecipe(selectedRecipe);
-    }
-  }, [id, recipes]);
+  const selectedRecipe = recipes?.length > 0 ? recipes.find((recipe) => recipe.id === id) : null;
 
   // Deleting a Recipe
   const onDeleteClick = async () => {
@@ -33,9 +28,9 @@ const IndiRecipePage = () => {
     }
   };
 
-  if (!recipe) {
-    return <div>Loading...</div>;
-  }
+  // if (!recipe) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="bg-lightrose min-h-screen min-w-full">
@@ -52,27 +47,27 @@ const IndiRecipePage = () => {
           {/* Name Infos */}
           <div className="grid grid-cols-1 md:grid-cols-30/70 w-full gap-6">
             <div className="bg-cwhite p-6 rounded-lg shadow-md ">
-              <h1 className="text-3xl text-brown font-bold mb-4">{recipe.name}</h1>
+              <h1 className="text-3xl text-brown font-bold mb-4">{selectedRecipe.name}</h1>
               <div className="border border-lightrose mb-5"></div>
 
-              <p className=" mt-8">{recipe.description}</p>
+              <p className=" mt-8">{selectedRecipe.description}</p>
 
               <div className="text-brown mb-4 mt-8 flex align-middle justify-center md:justify-start">
-                <p>Estimated Time Prepared: {recipe.timeprepared}</p>
+                <p>Estimated Time Prepared: {selectedRecipe.timeprepared}</p>
               </div>
 
               <div className="border border-lightrose mb-5"></div>
               <h3 className="text-xl font-bold mb-6 mt-10 text-brown">Manage Recipe</h3>
 
               <Link
-                to={`/editrecipe/${recipe.id}`}
+                to={`/editrecipe/${selectedRecipe.id}`}
                 className="bg-darkerrose hover:bg-rose text-white text-center  py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Edit Recipe
               </Link>
 
               <button
-                onClick={() => onDeleteClick(recipe.id)}
+                onClick={() => onDeleteClick(selectedRecipe.id)}
                 className="bg-darkerrose hover:bg-rose text-white  py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Delete Recipe
@@ -85,7 +80,7 @@ const IndiRecipePage = () => {
                 <h3 className="text-brown text-lg font-bold mb-6">Ingredients</h3>
 
                 <ul className="list-disc ml-6">
-                  {recipe.ingredients.map((ingredient, index) => (
+                  {selectedRecipe.ingredients.map((ingredient, index) => (
                     <li key={index} className="mb-2">
                       {ingredient}
                     </li>
@@ -95,7 +90,7 @@ const IndiRecipePage = () => {
                 <h3 className="text-brown text-lg font-bold mb-6 mt-10">Instructions</h3>
 
                 <ol className="list-decimal ml-6">
-                  {recipe.instructions.map((instruction, index) => (
+                  {selectedRecipe.instructions.map((instruction, index) => (
                     <li key={index} className="mb-2">
                       {instruction}
                     </li>

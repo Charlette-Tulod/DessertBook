@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 const RecipeList = ({ recipe }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
-  let description = recipe.description;
+  // let description = recipe.description;
 
-  if (!showFullDescription) {
-    description = description.substring(0, 100) + '...';
-  }
+  // if (!showFullDescription) {
+  //   description = description.substring(0, 100) + '...';
+  // }
+
+  const description = showFullDescription
+    ? recipe.description
+    : recipe.description.substring(0, 100) + '...';
 
   return (
     <Link
