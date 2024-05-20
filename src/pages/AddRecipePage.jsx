@@ -1,18 +1,16 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { addRecipe } from '../services/service';
-import { RecipeContext } from '../context/RecipeContext';
+import { addRecipe as addRecipeService } from '../services/RecipeService';
 import { toast } from 'react-toastify';
 import RecipeForm from '../components/RecipeForm';
 
 const AddRecipePage = () => {
-  const { addRecipe } = useContext(RecipeContext);
   const navigate = useNavigate();
 
   // Handles adding a new recipe
   const handleAddRecipe = async (newRecipe) => {
     try {
-      await addRecipe(newRecipe);
+      await addRecipeService(newRecipe);
       toast.success('Recipe Added Successfully');
       navigate('/recipes');
     } catch (error) {

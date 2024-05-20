@@ -132,26 +132,19 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
+import { deleteRecipe as deleteRecipeService } from '../services/RecipeService';
 
 const IndiRecipePage = () => {
   const { id } = useParams();
-  const { recipes, deleteRecipe } = useContext(RecipeContext);
+  const { recipes } = useContext(RecipeContext);
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const selectedRecipe = recipes?.length > 0 ? recipes.find((recipe) => recipe.id === id) : null;
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const onDeleteClick = async () => {
     try {
-      await deleteRecipe(id);
+      await deleteRecipeService(id);
       toast.success('Recipe deleted successfully');
       navigate('/recipes');
     } catch (error) {
@@ -159,6 +152,14 @@ const IndiRecipePage = () => {
       toast.error('Failed to delete recipe');
     }
     handleClose();
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   if (!selectedRecipe) {

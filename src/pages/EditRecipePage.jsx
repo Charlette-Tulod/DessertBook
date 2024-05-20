@@ -4,11 +4,12 @@ import { RecipeContext } from '../context/RecipeContext';
 import { FaArrowLeft } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import RecipeForm from '../components/RecipeForm';
+import { updateRecipe as updateRecipeService } from '../services/RecipeService';
 
 const EditRecipePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { recipes, updateRecipe } = useContext(RecipeContext);
+  const { recipes } = useContext(RecipeContext);
 
   // Find the recipe to update based on the ID
   const recipeToUpdate = recipes.find((recipe) => recipe.id === id);
@@ -16,7 +17,7 @@ const EditRecipePage = () => {
   // Handles updating the recipe
   const handleUpdateRecipe = async (updatedRecipe) => {
     try {
-      await updateRecipe(id, updatedRecipe);
+      await updateRecipeService(id, updatedRecipe);
       toast.success('Recipe Updated Successfully');
       navigate('/recipes');
     } catch (error) {
