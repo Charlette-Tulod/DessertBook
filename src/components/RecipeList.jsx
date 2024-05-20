@@ -41,21 +41,24 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, Typography, Button } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
 
 const RecipeList = ({ recipe }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
-  const description = showFullDescription
-    ? recipe.description
-    : `${recipe.description.substring(0, 100)}...`;
+  const description = recipe.description
+    ? showFullDescription
+      ? recipe.description
+      : `${recipe.description.substring(0, 100)}...`
+    : '';
 
   return (
     <Card
       component={Link}
       to={`/recipes/${recipe.id}`}
-      sx={{ textDecoration: 'none', color: 'inherit', padding: '15px', borderRadius: '16px' }}
+      sx={{ textDecoration: 'none', color: 'inherit', borderRadius: '16px' }}
     >
+      <CardMedia component="img" image={recipe.image} alt={recipe.name} sx={{ height: '220px' }} />
       <CardContent>
         <Typography variant="h5" component="h3" fontWeight="bold" className="text-brown mb-10">
           {recipe.name}

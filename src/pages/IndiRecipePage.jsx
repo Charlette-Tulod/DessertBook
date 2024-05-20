@@ -116,6 +116,9 @@ import {
   Box,
   Container,
   Grid,
+  Card,
+  CardMedia,
+  CardContent,
   Typography,
   Button,
   Divider,
@@ -173,58 +176,66 @@ const IndiRecipePage = () => {
 
         <Grid container spacing={6}>
           <Grid item xs={12} md={4}>
-            <Box sx={{ backgroundColor: '#ffffff', p: 4, borderRadius: 4, boxShadow: 2 }}>
-              <Typography variant="h4" fontWeight="bold" color="#754328" mb={2}>
-                {selectedRecipe.name}
-              </Typography>
-              <Divider sx={{ borderColor: '#ffe4e6', mb: 3 }} />
-              <Typography variant="body1" mb={2}>
-                {selectedRecipe.description}
-              </Typography>
-              <Box sx={{ textAlign: 'center', mt: 3 }}>
-                <Typography variant="body1" color="#754328">
-                  Estimated Time Prepared: {selectedRecipe.timeprepared}
+            <Card sx={{ backgroundColor: '#ffffff', borderRadius: 4, boxShadow: 2 }}>
+              <CardMedia
+                component="img"
+                image={selectedRecipe.image}
+                alt={selectedRecipe.name}
+                sx={{ height: '250px' }}
+              />
+              <CardContent sx={{ padding: '30px' }}>
+                <Typography variant="h4" fontWeight="bold" color="#754328" mb={2}>
+                  {selectedRecipe.name}
                 </Typography>
-              </Box>
-              <Divider sx={{ borderColor: '#ffe4e6', my: 3 }} />
-              <Typography variant="h6" fontWeight="bold" color="#754328" mb={2}>
-                Manage Recipe
-              </Typography>
-              <Button
-                component={Link}
-                to={`/editrecipe/${selectedRecipe.id}`}
-                variant="contained"
-                sx={{
-                  backgroundColor: '#fda4af',
-                  color: '#754328',
-                  width: '100%',
-                  borderRadius: '20px',
-                  mb: 2,
-                  '&:hover': {
-                    backgroundColor: '#ffe4e6',
-                    color: '#000000',
-                  },
-                }}
-              >
-                Edit Recipe
-              </Button>
-              <Button
-                onClick={handleClickOpen}
-                variant="contained"
-                sx={{
-                  backgroundColor: '#fda4af',
-                  color: '#754328',
-                  width: '100%',
-                  borderRadius: '20px',
-                  '&:hover': {
-                    backgroundColor: '#ffe4e6',
-                    color: '#000000',
-                  },
-                }}
-              >
-                Delete Recipe
-              </Button>
-            </Box>
+                <Divider sx={{ borderColor: '#ffe4e6', mb: 3 }} />
+                <Typography variant="body1" mb={2}>
+                  {selectedRecipe.description}
+                </Typography>
+                <Box sx={{ textAlign: 'center', mt: 3 }}>
+                  <Typography variant="body1" color="#754328">
+                    Estimated Time Prepared: {selectedRecipe.timeprepared}
+                  </Typography>
+                </Box>
+                <Divider sx={{ borderColor: '#ffe4e6', my: 3 }} />
+                <Typography variant="h6" fontWeight="bold" color="#754328" mb={2}>
+                  Manage Recipe
+                </Typography>
+                <Button
+                  component={Link}
+                  to={`/editrecipe/${selectedRecipe.id}`}
+                  variant="contained"
+                  sx={{
+                    backgroundColor: '#fda4af',
+                    color: '#754328',
+                    width: '100%',
+                    borderRadius: '20px',
+                    mb: 2,
+                    '&:hover': {
+                      backgroundColor: '#ffe4e6',
+                      color: '#000000',
+                    },
+                  }}
+                >
+                  Edit Recipe
+                </Button>
+                <Button
+                  onClick={handleClickOpen}
+                  variant="contained"
+                  sx={{
+                    backgroundColor: '#fda4af',
+                    color: '#754328',
+                    width: '100%',
+                    borderRadius: '20px',
+                    '&:hover': {
+                      backgroundColor: '#ffe4e6',
+                      color: '#000000',
+                    },
+                  }}
+                >
+                  Delete Recipe
+                </Button>
+              </CardContent>
+            </Card>
           </Grid>
 
           <Grid item xs={12} md={8}>
