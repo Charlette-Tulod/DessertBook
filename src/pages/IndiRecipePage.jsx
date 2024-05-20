@@ -109,6 +109,7 @@
 
 import React, { useContext, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { RecipeContext } from '../context/RecipeContext';
 import { FaArrowLeft } from 'react-icons/fa';
 import { toast } from 'react-toastify';
@@ -137,20 +138,28 @@ import { deleteRecipe as deleteRecipeService } from '../services/RecipeService';
 const IndiRecipePage = () => {
   const { id } = useParams();
   const { recipes } = useContext(RecipeContext);
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const selectedRecipe = recipes?.length > 0 ? recipes.find((recipe) => recipe.id === id) : null;
 
-  const onDeleteClick = async () => {
-    try {
-      await deleteRecipeService(id);
+  // Use useMutation for deleting a recipe
+  const mutation = useMutation({
+    mutationFn: () => deleteRecipeService(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries('recipes');
       toast.success('Recipe deleted successfully');
       navigate('/recipes');
-    } catch (error) {
+    },
+    onError: (error) => {
       console.error('Error deleting recipe:', error.message);
       toast.error('Failed to delete recipe');
-    }
+    },
+  });
+
+  const onDeleteClick = () => {
+    mutation.mutate();
     handleClose();
   };
 

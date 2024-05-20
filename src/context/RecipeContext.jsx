@@ -127,7 +127,7 @@
 
 // export default RecipeContextProvider;
 
-import React, { createContext, useContext } from 'react';
+import React, { createContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getRecipes } from '../services/RecipeService';
 
@@ -145,7 +145,5 @@ const RecipeContextProvider = ({ children }) => {
     </RecipeContext.Provider>
   );
 };
-
-// export const useData = () => useContext(RecipeContext);
 
 export default RecipeContextProvider;
