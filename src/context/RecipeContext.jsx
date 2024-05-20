@@ -127,28 +127,25 @@
 
 // export default RecipeContextProvider;
 
-import React, { createContext, useState, useEffect } from 'react';
-import { fetchRecipes } from '../services/RecipeService';
+import React, { createContext, useContext } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { getRecipes } from '../services/RecipeService';
 
 export const RecipeContext = createContext();
 
 const RecipeContextProvider = ({ children }) => {
-  const [recipes, setRecipes] = useState([]);
+  const recipesQuery = useQuery({
+    queryKey: ['recipes'],
+    queryFn: getRecipes,
+  });
 
-  useEffect(() => {
-    const getRecipes = async () => {
-      try {
-        const data = await fetchRecipes();
-        setRecipes(data);
-      } catch (error) {
-        console.error('Error fetching recipes:', error.message);
-      }
-    };
-
-    getRecipes();
-  }, []);
-
-  return <RecipeContext.Provider value={{ recipes }}>{children}</RecipeContext.Provider>;
+  return (
+    <RecipeContext.Provider value={{ recipes: recipesQuery.data || [] }}>
+      {children}
+    </RecipeContext.Provider>
+  );
 };
+
+// export const useData = () => useContext(RecipeContext);
 
 export default RecipeContextProvider;

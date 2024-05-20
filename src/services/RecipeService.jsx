@@ -100,78 +100,101 @@
 // };
 
 // RecipeService.jsx
-import { Config } from '../services/Config';
+// import { Config } from './config';
 
-const fetchRecipes = async () => {
-  try {
-    const response = await fetch(`${Config.API_URL}/recipes`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch recipes');
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching recipes:', error.message);
-    throw error;
-  }
+// const fetchRecipes = async () => {
+//   try {
+//     const response = await fetch(`${Config.API_URL}/recipes`);
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch recipes');
+//     }
+//     return await response.json();
+//   } catch (error) {
+//     console.error('Error fetching recipes:', error.message);
+//     throw error;
+//   }
+// };
+
+// const addRecipe = async (newRecipe) => {
+//   try {
+//     const response = await fetch(`${Config.API_URL}/recipes`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(newRecipe),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error('Failed to add recipe');
+//     }
+
+//     return await response.json();
+//   } catch (error) {
+//     console.error('Error adding recipe:', error.message);
+//     throw error;
+//   }
+// };
+
+// const updateRecipe = async (id, updatedRecipe) => {
+//   try {
+//     const response = await fetch(`${Config.API_URL}/recipes/${id}`, {
+//       method: 'PUT',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(updatedRecipe),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error('Failed to update recipe');
+//     }
+
+//     return await response.json();
+//   } catch (error) {
+//     console.error('Error updating recipe:', error.message);
+//     throw error;
+//   }
+// };
+
+// const deleteRecipe = async (id) => {
+//   try {
+//     const response = await fetch(`${Config.API_URL}/recipes/${id}`, {
+//       method: 'DELETE',
+//     });
+
+//     if (!response.ok) {
+//       throw new Error('Failed to delete recipe');
+//     }
+
+//     return await response.json();
+//   } catch (error) {
+//     console.error('Error deleting recipe:', error.message);
+//     throw error;
+//   }
+// };
+
+// export { fetchRecipes, addRecipe, updateRecipe, deleteRecipe };
+
+import axios from 'axios';
+import { Config } from './config';
+
+export const getRecipes = async () => {
+  const { data } = await axios.get(`${Config.API_URL}/recipes`);
+  return data;
 };
 
-const addRecipe = async (newRecipe) => {
-  try {
-    const response = await fetch(`${Config.API_URL}/recipes`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newRecipe),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to add recipe');
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error('Error adding recipe:', error.message);
-    throw error;
-  }
+export const addRecipe = async (newRecipe) => {
+  const { data } = await axios.post(`${Config.API_URL}/recipes`, newRecipe);
+  return data;
 };
 
-const updateRecipe = async (id, updatedRecipe) => {
-  try {
-    const response = await fetch(`${Config.API_URL}/recipes/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedRecipe),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to update recipe');
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error('Error updating recipe:', error.message);
-    throw error;
-  }
+export const updateRecipe = async (id, updatedRecipe) => {
+  const { data } = await axios.put(`${Config.API_URL}/recipes/${id}`, updatedRecipe);
+  return data;
 };
 
-const deleteRecipe = async (id) => {
-  try {
-    const response = await fetch(`${Config.API_URL}/recipes/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to delete recipe');
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error('Error deleting recipe:', error.message);
-    throw error;
-  }
+export const deleteRecipe = async (id) => {
+  const { data } = await axios.delete(`${Config.API_URL}/recipes/${id}`);
+  return data;
 };
-
-export { fetchRecipes, addRecipe, updateRecipe, deleteRecipe };
