@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { config } from '../services/config';
+import { Config } from '../services/Config';
 // import { fetchRecipes } from '../services/service';
 
 export const RecipeContext = createContext();
@@ -29,7 +29,7 @@ const RecipeContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(`${config.API_URL}/recipes`);
+        const response = await fetch(`${Config.API_URL}/recipes`);
         if (!response.ok) {
           throw new Error('Failed to fetch recipes');
         }
@@ -47,7 +47,7 @@ const RecipeContextProvider = ({ children }) => {
 
   const addRecipe = async (newRecipe) => {
     try {
-      const response = await fetch(`${config.API_URL}/recipes`, {
+      const response = await fetch(`${Config.API_URL}/recipes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const RecipeContextProvider = ({ children }) => {
 
   const updateRecipe = async (id, updatedRecipe) => {
     try {
-      const response = await fetch(`${config.API_URL}/recipes/${id}`, {
+      const response = await fetch(`${Config.API_URL}/recipes/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const RecipeContextProvider = ({ children }) => {
 
   const deleteRecipe = async (id) => {
     try {
-      const response = await fetch(`${config.API_URL}/recipes/${id}`, {
+      const response = await fetch(`${Config.API_URL}/recipes/${id}`, {
         method: 'DELETE',
       });
 
