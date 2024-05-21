@@ -1,208 +1,18 @@
-// import React, { useState, useEffect } from 'react';
-// import { FaTrash } from 'react-icons/fa';
-// import { FiPlusCircle } from 'react-icons/fi';
-// import { TextField, Button, Typography, Box, IconButton, Container } from '@mui/material';
-
-// const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
-//   const [name, setName] = useState(initialData?.name || '');
-//   const [timeprepared, setTimeprepared] = useState(initialData?.timeprepared || '');
-//   const [description, setDescription] = useState(initialData?.description || '');
-//   const [ingredients, setIngredients] = useState(initialData?.ingredients || []);
-//   const [instructions, setInstructions] = useState(initialData?.instructions || []);
-
-//   // Handles change in ingredient and instruction input
-//   const handleIngredientChange = (e, index) => {
-//     const newIngredients = [...ingredients];
-//     newIngredients[index] = e.target.value;
-//     setIngredients(newIngredients);
-//   };
-
-//   const handleInstructionChange = (e, index) => {
-//     const newInstructions = [...instructions];
-//     newInstructions[index] = e.target.value;
-//     setInstructions(newInstructions);
-//   };
-
-//   // Add a new ingredient and instruction field
-//   const addIngredientField = () => {
-//     setIngredients([...ingredients, '']);
-//   };
-
-//   const addInstructionField = () => {
-//     setInstructions([...instructions, '']);
-//   };
-
-//   // Remove an ingredient field
-//   const removeIngredientField = (index) => {
-//     const newIngredients = ingredients.filter((_, i) => i !== index);
-//     setIngredients(newIngredients);
-//   };
-
-//   const removeInstructionField = (index) => {
-//     const newInstructions = instructions.filter((_, i) => i !== index);
-//     setInstructions(newInstructions);
-//   };
-
-//   // Handles recipes submit
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const recipeData = { name, timeprepared, description, ingredients, instructions };
-//     onSubmit(recipeData);
-//   };
-
-//   return (
-//     <Container maxWidth="sm">
-//       <form onSubmit={handleSubmit}>
-//         <Typography
-//           variant="h4"
-//           component="h2"
-//           color="customColors.brown"
-//           fontWeight="bold"
-//           textAlign="center"
-//           marginBottom="40px"
-//         >
-//           {headerText}
-//         </Typography>
-
-//         {/* Name */}
-//         <Box mb={4}>
-//           <Typography variant="subtitle1" component="h3" color="customColors.brown" gutterBottom>
-//             Recipe Name
-//           </Typography>
-//           <TextField
-//             fullWidth
-//             variant="outlined"
-//             required
-//             value={name}
-//             placeholder="e.g. Chocolate Cake"
-//             onChange={(e) => setName(e.target.value)}
-//             focused
-//           />
-//         </Box>
-
-//         {/* Time Prepared */}
-//         <Box mb={4}>
-//           <Typography variant="subtitle1" component="h3" color="customColors.brown" gutterBottom>
-//             Estimated Time Prepared
-//           </Typography>
-//           <TextField
-//             fullWidth
-//             variant="outlined"
-//             required
-//             value={timeprepared}
-//             placeholder="e.g. 2 Hours"
-//             onChange={(e) => setTimeprepared(e.target.value)}
-//             focused
-//           />
-//         </Box>
-
-//         {/* Description */}
-//         <Box mb={4}>
-//           <Typography variant="subtitle1" component="h3" color="customColors.brown" gutterBottom>
-//             Description
-//           </Typography>
-//           <TextField
-//             fullWidth
-//             variant="outlined"
-//             multiline
-//             rows={4}
-//             value={description}
-//             placeholder="Add recipe description"
-//             onChange={(e) => setDescription(e.target.value)}
-//             focused
-//           />
-//         </Box>
-
-//         {/* Ingredients */}
-//         <Box mb={4}>
-//           <Typography variant="subtitle1" component="h3" color="customColors.brown" gutterBottom>
-//             Ingredients
-//           </Typography>
-//           {ingredients.map((ingredient, index) => (
-//             <Box key={index} display="flex" alignItems="center" mb={2}>
-//               <TextField
-//                 fullWidth
-//                 variant="outlined"
-//                 placeholder={`Ingredient ${index + 1}`}
-//                 value={ingredient}
-//                 onChange={(e) => handleIngredientChange(e, index)}
-//                 focused
-//               />
-//               <IconButton onClick={() => removeIngredientField(index)} color="secondary">
-//                 <FaTrash />
-//               </IconButton>
-//             </Box>
-//           ))}
-
-//           <IconButton aria-label="add" color="secondary" onClick={addIngredientField}>
-//             <FiPlusCircle />
-//           </IconButton>
-//         </Box>
-
-//         {/* Instructions */}
-//         <Box mb={4}>
-//           <Typography variant="subtitle1" component="h3" color="customColors.brown" gutterBottom>
-//             Instructions
-//           </Typography>
-//           {instructions.map((instruction, index) => (
-//             <Box key={index} display="flex" alignItems="center" mb={2}>
-//               <TextField
-//                 fullWidth
-//                 variant="outlined"
-//                 multiline
-//                 placeholder={`Instruction ${index + 1}`}
-//                 value={instruction}
-//                 onChange={(e) => handleInstructionChange(e, index)}
-//                 focused
-//               />
-//               <IconButton onClick={() => removeInstructionField(index)} color="secondary">
-//                 <FaTrash />
-//               </IconButton>
-//             </Box>
-//           ))}
-
-//           <IconButton aria-label="add" color="secondary" onClick={addInstructionField}>
-//             <FiPlusCircle />
-//           </IconButton>
-//         </Box>
-
-//         {/* Submit Button */}
-//         <Button
-//           type="submit"
-//           fullWidth
-//           variant="contained"
-//           color="primary"
-//           sx={{
-//             borderRadius: 15,
-//             boxShadow: 'none',
-//             '&:hover': {
-//               backgroundColor: '#fda4af',
-//             },
-//           }}
-//         >
-//           {buttonText}
-//         </Button>
-//       </form>
-//     </Container>
-//   );
-// };
-
-// export default RecipeForm;
-
 import React from 'react';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaUpload } from 'react-icons/fa';
 import { FiPlusCircle } from 'react-icons/fi';
 import { TextField, Button, Typography, Box, IconButton, Container } from '@mui/material';
 
 const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit, setValue, watch } = useForm({
     defaultValues: initialData || {
       name: '',
       timeprepared: '',
       description: '',
       ingredients: [''],
       instructions: [''],
+      image: null,
     },
   });
 
@@ -218,10 +28,22 @@ const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
     remove: removeInstruction,
   } = useFieldArray({ control, name: 'instructions' });
 
-  // Reset form with initial data
-  // useEffect(() => {
-  //   reset(initialData);
-  // }, [initialData, reset]);
+  const image = watch('image');
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setValue('image', reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleImageDelete = () => {
+    setValue('image', null);
+  };
 
   return (
     <Container maxWidth="sm">
@@ -303,6 +125,60 @@ const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
           />
         </Box>
 
+        {/* Image Upload */}
+        <Box mb={4}>
+          <Typography variant="subtitle1" component="h3" color="customColors.brown" gutterBottom>
+            Image
+          </Typography>
+          <Controller
+            name="image"
+            control={control}
+            render={({ field }) => (
+              <div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    field.onChange(e);
+                    handleImageChange(e);
+                  }}
+                  style={{ display: 'none' }}
+                  id="upload-button"
+                />
+                <label htmlFor="upload-button">
+                  {/* <IconButton component="span" color="secondary">
+                    <FaUpload />
+                  </IconButton> */}
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    component="span"
+                    sx={{
+                      borderRadius: '5px',
+                      boxShadow: 'none',
+                      color: '#fda4af',
+                    }}
+                  >
+                    Upload Image
+                  </Button>
+                </label>
+              </div>
+            )}
+          />
+          {image && (
+            <Box mt={2} display="flex" alignItems="center">
+              <img
+                src={image}
+                alt="Recipe"
+                style={{ width: '100%', maxHeight: '200px', objectFit: 'cover' }}
+              />
+              <IconButton onClick={handleImageDelete} color="secondary">
+                <FaTrash size={20} />
+              </IconButton>
+            </Box>
+          )}
+        </Box>
+
         {/* Ingredients */}
         <Box mb={4}>
           <Typography variant="subtitle1" component="h3" color="customColors.brown" gutterBottom>
@@ -324,7 +200,7 @@ const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
                 )}
               />
               <IconButton onClick={() => removeIngredient(index)} color="secondary">
-                <FaTrash />
+                <FaTrash size={20} />
               </IconButton>
             </Box>
           ))}
@@ -355,7 +231,7 @@ const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
                 )}
               />
               <IconButton onClick={() => removeInstruction(index)} color="secondary">
-                <FaTrash />
+                <FaTrash size={20} />
               </IconButton>
             </Box>
           ))}
