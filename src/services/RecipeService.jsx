@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Config } from './Config';
+import { Config } from '../config';
 
 export const getRecipes = async () => {
   const { data } = await axios.get(`${Config.API_URL}/recipes`);
