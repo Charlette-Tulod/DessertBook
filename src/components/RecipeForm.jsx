@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
-import { FaTrash, FaUpload } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import { FiPlusCircle } from 'react-icons/fi';
 import { TextField, Button, Typography, Box, IconButton, Container } from '@mui/material';
 
@@ -146,9 +146,6 @@ const RecipeForm = ({ initialData, onSubmit, buttonText, headerText }) => {
                   id="upload-button"
                 />
                 <label htmlFor="upload-button">
-                  {/* <IconButton component="span" color="secondary">
-                    <FaUpload />
-                  </IconButton> */}
                   <Button
                     size="small"
                     variant="outlined"

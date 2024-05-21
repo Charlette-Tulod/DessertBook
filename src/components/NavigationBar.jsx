@@ -58,7 +58,14 @@ const NavigationBar = () => {
               <IoMdMenu />
             </IconButton>
             <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle}>
-              <Box sx={{ p: 3 }}>
+              <Box
+                sx={{
+                  p: 3,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                }}
+              >
                 <div style={{ flexGrow: 1 }}></div>
                 {renderNavLinks()}
               </Box>
