@@ -1,28 +1,38 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { RecipeContext } from '../context/RecipeContext';
 import { FaArrowLeft } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import RecipeForm from '../components/RecipeForm';
+import { updateRecipe as updateRecipeService } from '../services/RecipeService';
 
 const EditRecipePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { recipes, updateRecipe } = useContext(RecipeContext);
+  const queryClient = useQueryClient();
+  const { recipes } = useContext(RecipeContext);
 
   // Find the recipe to update based on the ID
   const recipeToUpdate = recipes.find((recipe) => recipe.id === id);
 
-  // Handles updating the recipe
-  const handleUpdateRecipe = async (updatedRecipe) => {
-    try {
-      await updateRecipe(id, updatedRecipe);
+  // Use useMutation for updating a recipe
+  const mutation = useMutation({
+    mutationFn: (updatedRecipe) => updateRecipeService(id, updatedRecipe),
+    onSuccess: () => {
+      queryClient.invalidateQueries('recipes');
       toast.success('Recipe Updated Successfully');
       navigate('/recipes');
-    } catch (error) {
+    },
+    onError: (error) => {
       console.error('Error updating recipe:', error.message);
       toast.error('Failed to update recipe. Please try again.');
-    }
+    },
+  });
+
+  // Handles updating the recipe
+  const handleUpdateRecipe = async (updatedRecipe) => {
+    mutation.mutate(updatedRecipe);
   };
 
   return (
